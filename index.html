@@ -129,6 +129,37 @@ layout: page
       </div>
 
       <hr>
+   <!-- preview of some publications -->
+      <div>
+        <h1 data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true">Latest publications</h1>
+        
+        <div data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+        data-aos-delay="100"
+        id="publications-container">
+        {% assign sorted_publications = site.publications | sort: 'pub_date' | reverse %}
+        {% for publication in sorted_publications limit:5 %}
+          <div class="col-sm-6 card-item">
+            <div class="well">
+              <a style="text-decoration: none; color: black; font-size: medium;" href="{{ publication.link }}">{{ publication.title }}</a>
+              <p><img src="{{site.baseurl}}{{ publication.image }}" class="img-responsive" width="40%" style="float:left" alt=""></p>
+              <p>{{ publication.description }}</p>
+              <p><em>{{ publication.authors }}</em></p>
+              <p><strong><a href="{{ publication.link }}">{{ publication.journal }}, {{ publication.year }}</a></strong></p>
+            </div>
+          </div>
+        {% endfor %}
+          </div>
+
+          <button style="  background-color: white;
+          border: #f0f8ff;
+          font-size: large;
+          margin-bottom: 10px;"> <a href="publication/"> see more...</a></button>
+      </div>
+
   <h2>Skills</h2>
   <ul>
     <li>Neurostimulation & recording in awake/anesthetized animals</li>

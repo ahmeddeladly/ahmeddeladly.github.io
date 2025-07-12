@@ -104,61 +104,6 @@ layout: page
     <li>Probabilistic machine learning for neural data modeling</li>
     <li>Decision making under uncertainty</li>
   </ul>
-<hr>
-      <div class="w3-container" style="   background: #f0f8ff; padding: 25px; border-radius:10px; border: 1px solid #5d8aa8">
-        <div style="text-align:left">
-          <h3> Recent News </h3>
-          <!-- <u>Happenings of the last few months.</u> //-->
-          <span style="display: block; margin-bottom: 1em"></span>
-          <div class="news">
-              {% capture now %}{{'now' | date: '%s' | minus: 63072000 %}}{% endcapture %}
-              <ul style="list-style-position:outside;padding:20px" >
-                {% for new in site.data.news %}
-                  {% capture date %}{{new.date | date: '%s' | plus: 0 %}}{% endcapture %}
-                  {% if date > now %}
-                    <li>
-                      <span>
-                        {{ new.details }}
-                      </span>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-          </div>
-        </div >
-      </div>
-
-<hr>
-   <!-- preview of some publications -->
-      <div>
-        <h1 data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-once="true">Latest publications</h1>
-        
-        <div data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-once="true"
-        data-aos-delay="100"
-        id="publications-container">
-        {% assign sorted_publications = site.publications | sort: 'pub_date' | reverse %}
-        {% for publication in sorted_publications limit:5 %}
-          <div class="col-sm-6 card-item">
-            <div class="well">
-              <a style="text-decoration: none; color: black; font-size: medium;" href="{{ publication.link }}">{{ publication.title }}</a>
-              <p><img src="{{site.baseurl}}{{ publication.image }}" class="img-responsive" width="40%" style="float:left" alt=""></p>
-              <p>{{ publication.description }}</p>
-              <p><em>{{ publication.authors }}</em></p>
-              <p><strong><a href="{{ publication.link }}">{{ publication.journal }}, {{ publication.year }}</a></strong></p>
-            </div>
-          </div>
-        {% endfor %}
-          </div>
-
-          <button style="  background-color: white;
-          border: #f0f8ff;
-          font-size: large;
-          margin-bottom: 10px;"> <a href="publication/"> see more...</a></button>
-      </div>
 
   <h2>Skills</h2>
   <ul>
